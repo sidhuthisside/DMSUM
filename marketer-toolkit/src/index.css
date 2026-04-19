@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   DESIGN SYSTEM — THE MARKETER'S TOOLKIT
+   ARCHITECTURE: CLASSIC & PREMIUM (MIDNIGHT & GOLD)
+   ============================================= */
+
+:root {
+  /* Core Base Colors */
+  --bg-void:       #050505;
+  --bg-surface:    #0A0A0A;
+  --bg-card:       #0E0E0E;
+  --bg-elevated:   #121212;
+
+  /* Classic Border and Dividers */
+  --border-soft:   rgba(255,255,255,0.03);
+  --border-strong: rgba(255,255,255,0.08);
+  --border-gold:   rgba(212, 175, 55, 0.2);
+
+  /* Premium Accents */
+  --accent-gold:   #D4AF37;   /* Champagne Gold */
+  --accent-slate:  #708090;   /* Slate Silver */
+  --accent-ivory:  #F5F5F0;   /* Ivory White */
+  --accent-bronze: #8D6E63;   /* Rich Bronze */
+
+  /* Functional Colors (Muted Gold/Slate) */
+  --accent-violet: #8D6E63;   /* Bronze Accent */
+  --accent-cyan:   #D4AF37;   /* Gold Accent */
+  --accent-coral:  #E57373;   /* Muted Rose */
+  --accent-green:  #81C784;   /* Sage Green */
+  --accent-amber:  #FFB347;   /* Ochre Amber */
+
+  /* Text Hierarchy */
+  --text-bright:   #F5F5F8;
+  --text-mid:      #94A3B8;
+  --text-dim:      #475569;
+
+  /* Platform Tokens (Refined) */
+  --fb:            #1877F2;
+  --ig:            #C13584;
+  --snap:          #FFFC00;
+  --tw:            #F5F5F5;
+  --li:            #0077B5;
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ── */
+body {
+  background-color: var(--bg-void);
+  color: var(--text-bright);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.font-body { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Fluid font sizes */
+.text-hero {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+.text-section {
+  font-size: clamp(1.75rem, 3.5vw, 3.5rem);
+  font-family: 'Cormorant Garamond', serif;
+}
+.text-card-title {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-family: 'Cormorant Garamond', serif;
+}
+.text-body {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Background Aesthetic ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtler grain for high-end texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: #b08d20; }
+
+/* ── UI Elements ── */
+.glass {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--border-gold);
+}
+
+.btn-premium {
+  padding: 12px 32px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn-premium:hover {
+  background: var(--accent-gold);
+  color: #000;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.card-luxury {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card-luxury:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-gold);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
+
+/* ── Custom Animations ── */
+@keyframes fadeInLuxury {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-luxury {
+  animation: fadeInLuxury 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes slowOrbit {
+  from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@keyframes marqueeSlow {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-luxury {
+  animation: marqueeSlow 80s linear infinite;
+}
+
+/* Selection */
+::selection { background: var(--accent-gold); color: #000; }
